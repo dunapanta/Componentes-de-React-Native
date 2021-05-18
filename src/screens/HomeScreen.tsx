@@ -1,11 +1,63 @@
 import React from 'react';
 import {Text, View} from 'react-native';
-import Icon from 'react-native-vector-icons/Ionicons'
+import {FlatList} from 'react-native-gesture-handler';
+import {useSafeAreaInsets} from 'react-native-safe-area-context';
+import Icon from 'react-native-vector-icons/Ionicons';
 
+import {styles} from '../theme/appTheme';
+
+interface MenuItem {
+  name: string;
+  icon: string;
+  component: string;
+}
+const menuItems = [
+  {
+    name: 'Animation 01',
+    icon: 'cube-outline',
+    component: 'Animation01',
+  },
+  {
+    name: 'Animation 02',
+    icon: 'airplane-outline',
+    component: 'Animation02',
+  },
+];
 export const HomeScreen = () => {
+  const {top} = useSafeAreaInsets();
+  const renderMenuItem = (menuItem: MenuItem) => {
+    return (
+      <View>
+        <Text>
+          {menuItem.name} - {menuItem.icon}
+        </Text>
+      </View>
+    );
+  };
+
+  const renderListHeader = () => {
+    return (
+      <View style={{marginTop: top + 20, marginBottom: 20}}>
+        <Text style={styles.title}>Tu App</Text>
+      </View>
+    );
+  };
+
+  const itemSeparator = () => {
+    return (
+      <View
+        style={{borderBottomWidth: 1, opacity: 0.4, marginVertical: 5}}></View>
+    );
+  };
   return (
-    <View>
-      <Icon name="star-outline" size={30} />
+    <View style={{flex: 1, ...styles.globalMargin}}>
+      <FlatList
+        keyExtractor={item => item.name}
+        data={menuItems}
+        renderItem={({item}) => renderMenuItem(item)}
+        ListHeaderComponent={renderListHeader}
+        ItemSeparatorComponent={itemSeparator}
+      />
     </View>
   );
 };
