@@ -12,12 +12,12 @@ const menuItems: MenuItem[] = [
   {
     name: 'Animation 01',
     icon: 'cube-outline',
-    component: 'Animation01',
+    component: 'Animation01Screen',
   },
   {
     name: 'Animation 02',
     icon: 'airplane-outline',
-    component: 'Animation02',
+    component: 'Animation02Screen',
   },
 ];
 export const HomeScreen = () => {
