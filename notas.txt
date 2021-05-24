@@ -58,3 +58,8 @@ pego antes de termina la etiqueta </dict>>
 </array>
 
 npx pod-install
+
+
+//CLASE 202 PROMPT para Android e iOS
+
+yarn add react-native-prompt-android

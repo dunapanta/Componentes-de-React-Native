@@ -1,7 +1,9 @@
 import React from 'react';
 import {Alert, Button, View} from 'react-native';
-import {Header} from '../components/Header';
 
+import prompt from 'react-native-prompt-android';
+
+import {Header} from '../components/Header';
 import {styles} from '../theme/appTheme';
 
 export const AlertScreen = () => {
@@ -32,13 +34,34 @@ export const AlertScreen = () => {
   };
   //Prompt solo iOS
   const showPrompt = () => {
-    Alert.prompt(
+    /* Alert.prompt(
       'Titulo Prompt',
       'Accion',
       (valor: string) => {
         console.log(valor);
       },
       'plain-text',
+    ); */
+    prompt(
+      'Enter password',
+      'Enter your password to claim your $1.5B in lottery winnings',
+      [
+        {
+          text: 'Cancel',
+          onPress: () => console.log('Cancel Pressed'),
+          style: 'cancel',
+        },
+        {
+          text: 'OK',
+          onPress: password => console.log('OK Pressed, password: ' + password),
+        },
+      ],
+      {
+        type: 'secure-text',
+        cancelable: false,
+        defaultValue: 'test',
+        placeholder: 'placeholder',
+      },
     );
   };
 
@@ -46,6 +69,7 @@ export const AlertScreen = () => {
     <View style={styles.globalMargin}>
       <Header title="Alertas" />
       <Button title="Mostrar Alerta" onPress={showAlert} />
+      <View style={{height: 10}} />
       <Button title="Prompt solo iOS" onPress={showPrompt} />
     </View>
   );
