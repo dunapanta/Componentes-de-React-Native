@@ -5,10 +5,10 @@ export const useAnimation = () => {
   const opacity = useRef(new Animated.Value(0.2)).current;
   const position = useRef(new Animated.Value(0)).current;
 
-  const fadeIn = () => {
+  const fadeIn = (duration: number = 400) => {
     Animated.timing(opacity, {
       toValue: 1,
-      duration: 800,
+      duration: duration,
       useNativeDriver: true,
     }).start();
   };
@@ -18,7 +18,7 @@ export const useAnimation = () => {
       toValue: 0.2,
       duration: 800,
       useNativeDriver: true,
-    }).start(() => console.log('Termino')); //End callback se llama cuando la animacion termina
+    }).start(); //End callback se llama cuando la animacion termina
   };
 
   const startMoving = (initPosition: number, duration: number = 1000) => {

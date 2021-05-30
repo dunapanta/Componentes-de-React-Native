@@ -1,16 +1,18 @@
 import React, {useState} from 'react';
 import {ActivityIndicator, Image, StyleSheet, Text, View} from 'react-native';
 import {FlatList} from 'react-native-gesture-handler';
+import {FadeInImage} from './FadeInImage';
 import {Header} from './Header';
 
 export const InfiniteScrollScreen = () => {
   const [numbers, setNumbers] = useState([0, 1, 2, 3, 4, 5, 6]);
   const renderItem = (item: number) => {
     return (
-      <Image
+      <FadeInImage uri={`https://picsum.photos/id/${item}/500/400`} />
+      /*  <Image
         source={{uri: `https://picsum.photos/id/${item}/500/400`}}
         style={{width: '100%', height: 400}}
-      />
+      /> */
     );
   };
 
@@ -31,7 +33,11 @@ export const InfiniteScrollScreen = () => {
         keyExtractor={item => item.toString()}
         renderItem={({item}) => renderItem(item)}
         //Para que el header sea parte del flatlist
-        ListHeaderComponent={<Header title="Infinite Scroll" />}
+        ListHeaderComponent={() => (
+          <View style={{marginHorizontal: 30}}>
+            <Header title="Infinite Scroll" />
+          </View>
+        )}
         //Infinite Scroll
         onEndReached={loadMore}
         onEndReachedThreshold={0.5}
