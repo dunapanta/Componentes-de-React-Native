@@ -63,3 +63,9 @@ npx pod-install
 //CLASE 202 PROMPT para Android e iOS
 
 yarn add react-native-prompt-android
+
+//CLASE 223
+Snap Carrousel
+https://github.com/meliorence/react-native-snap-carousel
+yarn add react-native-snap-carousel
+yarn add -D @types/react-native-snap-carousel
