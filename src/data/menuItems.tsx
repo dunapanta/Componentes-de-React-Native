@@ -51,4 +51,9 @@ export const menuItems: MenuItem[] = [
     icon: 'send-outline',
     component: 'SlidesScreen',
   },
+  {
+    name: 'Theme Screen Screen',
+    icon: 'flask-outline',
+    component: 'ChangeThemeScreen',
+  },
 ];

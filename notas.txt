@@ -69,3 +69,16 @@ Snap Carrousel
 https://github.com/meliorence/react-native-snap-carousel
 yarn add react-native-snap-carousel
 yarn add -D @types/react-native-snap-carousel
+
+//CLASE 227  
+Temas Ligth y Dark
+en App se importa DefaultTheme y DarkTheme
+
+const customTheme: Theme = {
+  dark: true,
+  colors: {
+    ...DarkTheme.colors,
+  }
+}
+
+//CLASE 228 Cambiar tema global de la Applicacion manualmente
