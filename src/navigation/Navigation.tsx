@@ -11,36 +11,39 @@ import {PullRefreshScreen} from '../screens/PullRefreshScreen';
 import {SectionListScreen} from '../screens/SectionListScreen';
 import {ModalScreen} from '../screens/ModalScreen';
 import {InfiniteScrollScreen} from '../components/InfiniteScrollScreen';
-import { SlidesScreen } from '../components/SlidesScreen';
-import { ChangeThemeScreen } from '../screens/ChangeThemeScreen';
+import {SlidesScreen} from '../components/SlidesScreen';
+import {ChangeThemeScreen} from '../screens/ChangeThemeScreen';
+import {NavigationContainer} from '@react-navigation/native';
 
 const Stack = createStackNavigator();
 
 const Navigation = () => {
   return (
-    <Stack.Navigator
-      screenOptions={{
-        headerShown: false,
-        cardStyle: {
-          //backgroundColor: 'white',
-        },
-      }}>
-      <Stack.Screen name="HomeScreen" component={HomeScreen} />
-      <Stack.Screen name="Animation01Screen" component={Animation01Screen} />
-      <Stack.Screen name="Animation02Screen" component={Animation02Screen} />
-      <Stack.Screen name="SwitchScreen" component={SwitchScreen} />
-      <Stack.Screen name="AlertScreen" component={AlertScreen} />
-      <Stack.Screen name="TextInputScreen" component={TextInputScreen} />
-      <Stack.Screen name="PullRefreshScreen" component={PullRefreshScreen} />
-      <Stack.Screen name="SectionListScreen" component={SectionListScreen} />
-      <Stack.Screen name="ModalScreen" component={ModalScreen} />
-      <Stack.Screen
-        name="InfiniteScrollScreen"
-        component={InfiniteScrollScreen}
-      />
-      <Stack.Screen name="SlidesScreen" component={SlidesScreen} />
-      <Stack.Screen name="ChangeThemeScreen" component={ChangeThemeScreen} />
-    </Stack.Navigator>
+    <NavigationContainer>
+      <Stack.Navigator
+        screenOptions={{
+          headerShown: false,
+          cardStyle: {
+            //backgroundColor: 'white',
+          },
+        }}>
+        <Stack.Screen name="HomeScreen" component={HomeScreen} />
+        <Stack.Screen name="Animation01Screen" component={Animation01Screen} />
+        <Stack.Screen name="Animation02Screen" component={Animation02Screen} />
+        <Stack.Screen name="SwitchScreen" component={SwitchScreen} />
+        <Stack.Screen name="AlertScreen" component={AlertScreen} />
+        <Stack.Screen name="TextInputScreen" component={TextInputScreen} />
+        <Stack.Screen name="PullRefreshScreen" component={PullRefreshScreen} />
+        <Stack.Screen name="SectionListScreen" component={SectionListScreen} />
+        <Stack.Screen name="ModalScreen" component={ModalScreen} />
+        <Stack.Screen
+          name="InfiniteScrollScreen"
+          component={InfiniteScrollScreen}
+        />
+        <Stack.Screen name="SlidesScreen" component={SlidesScreen} />
+        <Stack.Screen name="ChangeThemeScreen" component={ChangeThemeScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 };
 
