@@ -14,23 +14,23 @@ export const ligthTheme: ThemeState = {
   colors: {
     primary: '#f57f17',
     background: 'white',
-    card: '#334400',
+    card: 'white',
     text: 'black',
-    border: '#334490',
+    border: 'black',
     notification: '#3344ff',
   },
 };
 
 export const darkTheme: ThemeState = {
   currentTheme: 'dark',
-  dividerColor: 'rgba(0,0,0,0.7)',
+  dividerColor: '#e1ffb1',
   dark: true,
   colors: {
     primary: '#8bc34a',
     background: 'black',
-    card: '#334400',
+    card: 'black',
     text: 'white',
-    border: '#334490',
+    border: 'white',
     notification: '#3344ff',
   },
 };

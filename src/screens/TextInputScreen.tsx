@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 import {
   StyleSheet,
   TextInput,
@@ -14,6 +14,7 @@ import {Header} from '../components/Header';
 import {styles} from '../theme/appTheme';
 import {useForm} from '../hooks/useForm';
 import {CustomSwitch} from '../components/CustomSwitch';
+import {ThemeContex} from '../context/themeContext/ThemeContext';
 
 export const TextInputScreen = () => {
   const {form, onChange, isSubscribe} = useForm({
@@ -23,6 +24,10 @@ export const TextInputScreen = () => {
     isSubscribe: false,
   });
 
+  const {
+    theme: {colors, dividerColor},
+  } = useContext(ThemeContex);
+
   return (
     <KeyboardAvoidingView
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
@@ -31,19 +36,29 @@ export const TextInputScreen = () => {
           <View style={styles.globalMargin}>
             <Header title="Text Input" />
             <TextInput
-              style={stylesTextInput.textInput}
+              style={{
+                ...stylesTextInput.textInput,
+                borderColor: colors.text,
+                color: colors.text,
+              }}
               placeholder="Ingrese Nombre"
               autoCorrect={false}
               autoCapitalize="words"
               onChangeText={value => onChange(value, 'name')}
+              placeholderTextColor={dividerColor}
             />
             <TextInput
-              style={stylesTextInput.textInput}
+              style={{
+                ...stylesTextInput.textInput,
+                borderColor: colors.text,
+                color: colors.text,
+              }}
               placeholder="Ingrese Correo"
               autoCorrect={false}
               autoCapitalize="none"
               onChangeText={value => onChange(value, 'email')}
               keyboardType="email-address"
+              placeholderTextColor={dividerColor}
             />
 
             <View style={stylesTextInput.switchRow}>
@@ -56,9 +71,15 @@ export const TextInputScreen = () => {
             <Header title={JSON.stringify(form, null, 3)} />
 
             <TextInput
-              style={{...stylesTextInput.textInput, marginBottom: 100}}
+              style={{
+                ...stylesTextInput.textInput,
+                borderColor: colors.text,
+                color: colors.text,
+                marginBottom: 100,
+              }}
               placeholder="Ingrese Teléfono"
               onChangeText={value => onChange(value, 'phone')}
+              placeholderTextColor={dividerColor}
             />
           </View>
         </ScrollView>
@@ -70,7 +91,6 @@ export const TextInputScreen = () => {
 const stylesTextInput = StyleSheet.create({
   textInput: {
     borderWidth: 1,
-    borderColor: 'rgba(0,0,0,0.6)',
     height: 50,
     paddingHorizontal: 10,
     borderRadius: 10,
